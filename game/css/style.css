@@ -1,0 +1,46 @@
+/* Kestrel Run — Island Courier: HUD and menu styling. Flat, aviation-instrument look. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #0b1c2c; }
+body { font-family: "Trebuchet MS", Verdana, sans-serif; color: #eaf6ff; }
+#stage { position: fixed; inset: 0; }
+#scene { display: block; width: 100%; height: 100%; }
+.hidden { display: none !important; }
+
+/* ---------- HUD ---------- */
+#hud { position: absolute; inset: 0; pointer-events: none; text-shadow: 0 1px 3px rgba(0,0,0,.7); }
+.gauge { display: flex; align-items: baseline; gap: 6px; margin: 2px 0; }
+.gauge-label { font-size: 11px; letter-spacing: 2px; color: #9fd8ff; font-weight: bold; }
+.gauge-value { font-size: 30px; font-weight: bold; color: #ffffff; font-variant-numeric: tabular-nums; }
+.gauge-unit { font-size: 12px; color: #cfeeff; }
+#hud-left { position: absolute; left: 18px; top: 16px; background: rgba(6, 24, 38, .55); border: 1px solid rgba(159, 216, 255, .45); border-radius: 10px; padding: 10px 14px; }
+#hud-right { position: absolute; right: 18px; top: 16px; text-align: right; background: rgba(6, 24, 38, .55); border: 1px solid rgba(159, 216, 255, .45); border-radius: 10px; padding: 10px 14px; }
+#fuel-bar { width: 170px; height: 10px; background: rgba(255,255,255,.18); border-radius: 5px; overflow: hidden; margin: 4px 0 6px auto; }
+#fuel-fill { height: 100%; width: 100%; background: #37d67a; border-radius: 5px; }
+#fuel-fill.low { background: #ff5340; }
+#hud-compass { position: absolute; left: 50%; top: 14px; transform: translateX(-50%); width: 300px; text-align: center; }
+#compass-strip { height: 26px; overflow: hidden; background: rgba(6, 24, 38, .55); border: 1px solid rgba(159, 216, 255, .45); border-radius: 6px; font-size: 15px; font-weight: bold; letter-spacing: 3px; line-height: 26px; color: #eaf6ff; white-space: nowrap; }
+#compass-needle { color: #ffd23e; font-size: 14px; margin-top: -2px; }
+#hud-heading { font-size: 18px; font-weight: bold; color: #ffd23e; }
+#hud-horizon { position: absolute; left: 18px; bottom: 18px; background: rgba(6, 24, 38, .55); border: 1px solid rgba(159, 216, 255, .45); border-radius: 10px; padding: 8px; }
+#horizon { display: block; border-radius: 6px; }
+.horizon-caption { text-align: center; font-size: 10px; letter-spacing: 3px; color: #9fd8ff; margin-top: 4px; font-weight: bold; }
+#hud-mission { position: absolute; left: 50%; bottom: 20px; transform: translateX(-50%); text-align: center; background: rgba(6, 24, 38, .6); border: 1px solid rgba(255, 210, 62, .6); border-radius: 10px; padding: 8px 18px; }
+#mission-title { display: block; font-size: 11px; letter-spacing: 3px; color: #ffd23e; font-weight: bold; }
+#mission-text { display: block; font-size: 17px; font-weight: bold; margin-top: 2px; }
+#hud-toast { position: absolute; left: 50%; top: 34%; transform: translateX(-50%); font-size: 34px; font-weight: bold; color: #ffd23e; opacity: 0; transition: opacity .3s; }
+#hud-warn { position: absolute; left: 50%; top: 24%; transform: translateX(-50%); font-size: 22px; font-weight: bold; color: #ff5340; }
+#hud-hint { position: absolute; right: 18px; bottom: 18px; font-size: 12px; color: #cfeeff; background: rgba(6, 24, 38, .5); border-radius: 8px; padding: 7px 10px; max-width: 250px; line-height: 1.5; }
+
+/* ---------- Menus ---------- */
+#title-screen, #pause-screen, #end-screen { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(4, 18, 30, .45); }
+.panel { background: rgba(7, 30, 46, .92); border: 2px solid #ffd23e; border-radius: 16px; padding: 34px 44px; max-width: 620px; text-align: center; box-shadow: 0 12px 50px rgba(0,0,0,.6); }
+.panel h1 { font-size: 52px; letter-spacing: 6px; color: #ffd23e; }
+.panel h2 { font-size: 22px; letter-spacing: 10px; color: #9fd8ff; margin: 4px 0 16px; }
+.panel p { font-size: 16px; line-height: 1.55; color: #eaf6ff; }
+.tagline { margin-bottom: 18px; }
+.contracts { text-align: left; margin: 0 auto 22px; max-width: 480px; font-size: 15px; line-height: 2.1; }
+.contract-num { display: inline-block; width: 26px; height: 26px; line-height: 26px; text-align: center; border-radius: 50%; background: #ffd23e; color: #0b1c2c; font-weight: bold; margin-right: 8px; }
+.panel button { pointer-events: auto; cursor: pointer; font-size: 20px; font-weight: bold; letter-spacing: 2px; color: #0b1c2c; background: #ffd23e; border: none; border-radius: 10px; padding: 14px 34px; margin-top: 6px; }
+.panel button:hover { background: #ffe066; }
+.controls-line { margin-top: 18px; font-size: 13px; color: #9fd8ff; line-height: 1.6; }
+#end-score { font-size: 26px; font-weight: bold; color: #ffd23e; margin: 10px 0 16px; }

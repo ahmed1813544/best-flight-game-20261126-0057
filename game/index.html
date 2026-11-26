@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kestrel Run — Island Courier</title>
+<link rel="stylesheet" href="./css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.min.js" } }
+</script>
+</head>
+<body>
+<div id="stage">
+  <canvas id="scene"></canvas>
+
+  <!-- Flight HUD -->
+  <div id="hud" class="hidden">
+    <div id="hud-left">
+      <div class="gauge"><span class="gauge-label">AIRSPEED</span><span class="gauge-value" id="hud-speed">0</span><span class="gauge-unit">KT</span></div>
+      <div class="gauge"><span class="gauge-label">ALTITUDE</span><span class="gauge-value" id="hud-alt">0</span><span class="gauge-unit">FT</span></div>
+      <div class="gauge"><span class="gauge-label">VERT SPEED</span><span class="gauge-value" id="hud-vsi">0</span><span class="gauge-unit">FT/MIN</span></div>
+    </div>
+    <div id="hud-compass"><div id="compass-strip"></div><div id="compass-needle">▲</div><div id="hud-heading">000°</div></div>
+    <div id="hud-right">
+      <div class="gauge"><span class="gauge-label">SCORE</span><span class="gauge-value" id="hud-score">0</span></div>
+      <div class="gauge"><span class="gauge-label">FUEL</span><span class="gauge-value" id="hud-fuel">100</span><span class="gauge-unit">%</span></div>
+      <div id="fuel-bar"><div id="fuel-fill"></div></div>
+      <div class="gauge"><span class="gauge-label">THROTTLE</span><span class="gauge-value" id="hud-throttle">0</span><span class="gauge-unit">%</span></div>
+    </div>
+    <div id="hud-horizon"><canvas id="horizon" width="180" height="110"></canvas><div class="horizon-caption">ATTITUDE</div></div>
+    <div id="hud-mission"><span id="mission-title">CONTRACT 1 / 3</span><span id="mission-text">Fly through the rings</span></div>
+    <div id="hud-toast"></div>
+    <div id="hud-warn"></div>
+    <div id="hud-hint">W/S throttle · ←/→ or A/D bank · ↑/↓ pitch · SPACE drop parcel · P pause · M sound</div>
+  </div>
+
+  <!-- Title screen -->
+  <div id="title-screen">
+    <div class="panel">
+      <h1>KESTREL RUN</h1>
+      <h2>ISLAND COURIER</h2>
+      <p class="tagline">Fly the little bush plane <b>Kestrel</b> across the Marrow Isles.
+      Thread the rings, drop the parcel on the lighthouse beach, and bring her home
+      to Kestrel Field — before the fuel gauge hits empty.</p>
+      <div class="contracts">
+        <div><span class="contract-num">1</span> RING RUN — thread all 8 sky rings</div>
+        <div><span class="contract-num">2</span> PARCEL DROP — drop the crate on the beach circle</div>
+        <div><span class="contract-num">3</span> HOMECOMING — land gently on Kestrel Field</div>
+      </div>
+      <button id="start-button">START ENGINE</button>
+      <p class="controls-line">Keyboard: W/S throttle · arrows / A D steer · SPACE drop · P pause · M sound<br>
+      Mouse: drag anywhere to steer · click the buttons</p>
+    </div>
+  </div>
+
+  <!-- Pause / end screens -->
+  <div id="pause-screen" class="hidden"><div class="panel"><h1>PAUSED</h1><p>Take a breath, pilot.</p><button id="resume-button">RESUME</button></div></div>
+  <div id="end-screen" class="hidden"><div class="panel"><h1 id="end-title">MISSION COMPLETE</h1><p id="end-text"></p><p id="end-score"></p><button id="again-button">FLY AGAIN</button></div></div>
+</div>
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>
